@@ -57,7 +57,7 @@ def get_quant_calib_data(config, sample_data, custom_steps=None, model_type='ope
     cond_embs = torch.cat(cond_emb_lst, dim=0)
     masks = torch.cat(mask_lst, dim=0)
 
-    if model_type == 'opensora' or model_type == 'pixart':
+    if model_type in ('opensora', 'pixart', 'wan'):
         return xs, ts, cond_embs, masks
     else:
         raise NotImplementedError
@@ -299,7 +299,7 @@ def save_in_out_data(model: QuantModel, layer: Union[QuantLayer, BaseQuantBlock]
     elif model_type == 'sd':
         calib_xs, calib_ts, calib_conds = calib_data
         calib_masks = None
-    elif model_type == 'pixart' or model_type == 'opensora':
+    elif model_type in ('pixart', 'opensora', 'wan'):
         calib_xs, calib_ts, calib_conds, calib_masks = calib_data
     else:
         raise NotImplementedError
@@ -359,7 +359,7 @@ def save_in_out_data(model: QuantModel, layer: Union[QuantLayer, BaseQuantBlock]
                     'aspect_ratio': torch.tensor([[1.]], device=device)
                 }
             }
-        elif model_type == 'opensora':
+        elif model_type in ('opensora', 'wan'):
             calib_masks_ = calib_masks[i * batch_size:(i + 1) * batch_size].to(device)
         else:
             pass
@@ -599,7 +599,7 @@ class GetLayerInOut:
                 tmp_kwargs = {}
 
             try:
-                if self.model_type == 'opensora':
+                if self.model_type in ('opensora', 'wan'):
                     _ = self.model(x, timesteps, context, mask=mask, **tmp_kwargs)
                 else:
                     _ = self.model(x, timesteps, context, added_cond_kwargs=added_conds, mask=mask, **tmp_kwargs)
@@ -612,7 +612,7 @@ class GetLayerInOut:
                 self.data_saver.store_output = False  # avoid overwrite the output data
                 self.model.set_quant_state(model_quant_weight, model_quant_act)  # restore original model quant_state
                 try:
-                    if self.model_type == 'opensora':
+                    if self.model_type in ('opensora', 'wan'):
                         _ = self.model(x, timesteps, context, mask=mask, **tmp_kwargs)
                     else:
                         _ = self.model(x, timesteps, context, added_cond_kwargs=added_conds, mask=mask, **tmp_kwargs)

@@ -56,6 +56,11 @@ logs/eval_vbench_subset25/**
 !logs/eval_vbench_subset25/**/*.json
 logs_*/
 logs_smoke/
+logs_wan/*
+!logs_wan/eval_vbench_subset25/
+logs_wan/eval_vbench_subset25/**
+!logs_wan/eval_vbench_subset25/**/
+!logs_wan/eval_vbench_subset25/**/*.json
 
 # --- Hugging Face / download caches ---
 .cache/

@@ -1,0 +1,20 @@
+[
+  {
+    "prompt_en": "Gwen Stacy reading a book",
+    "dimension": [
+      "overall_consistency",
+      "aesthetic_quality",
+      "imaging_quality"
+    ],
+    "primary_dimension": "overall_consistency"
+  },
+  {
+    "prompt_en": "Fireworks.",
+    "dimension": [
+      "overall_consistency",
+      "aesthetic_quality",
+      "imaging_quality"
+    ],
+    "primary_dimension": "overall_consistency"
+  }
+]

@@ -10,7 +10,6 @@ from qdiff.quantizer.base_quantizer import StraightThrough
 # from qdiff.quantizer.base_quantizer import AdaRoundQuantizer
 from qdiff.utils import save_grad_data, save_in_out_data, LossFunction
 from torch.cuda.amp import GradScaler, autocast
-from opensora.acceleration.checkpoint import set_grad_checkpoint
 
 logger = logging.getLogger(__name__)
 enable_fp32 = False
@@ -63,7 +62,7 @@ def block_reconstruction(model: QuantModel, block: BaseQuantBlock, calib_data: t
     batch_size = config.calib_data.batch_size
 
     if len(calib_data)==4:
-        if config.model.model_type == 'pixart' or config.model.model_type == 'opensora':
+        if config.model.model_type in ('pixart', 'opensora', 'wan'):
             cached_inps, cached_outs = save_in_out_data(model, block, calib_data, config, model_type=config.model.model_type)
         else:
             assert config.model.model_type == 'sdxl'
@@ -236,16 +235,21 @@ def block_reconstruction(model: QuantModel, block: BaseQuantBlock, calib_data: t
         scaler = GradScaler()
     for name, param in block.named_parameters():
         if ('lora' in name and 'minus' not in name) or 'delta' in name or 'mask' in name:
-        # if 'lora' in name or 'zero_point' in name or 'delta' in name or 'zp_list' in name:
             param.requires_grad = True
         else:
             param.requires_grad = False
 
-    # for name, param in block.named_parameters():
-        # print(f"Parameter {name} requires_grad: {param.requires_grad}")
+    if config.model.model_type == "opensora" and hasattr(block, "blocks"):
+        from opensora.acceleration.checkpoint import set_grad_checkpoint
 
-    for i in range(1, 27):
-        set_grad_checkpoint(block.blocks[i])
+        for i in range(1, 27):
+            set_grad_checkpoint(block.blocks[i])
+
+    if config.model.model_type == "wan":
+        transformer = getattr(getattr(block, "model", None), "transformer", None)
+        if transformer is not None and hasattr(transformer, "enable_gradient_checkpointing"):
+            transformer.enable_gradient_checkpointing()
+            logger.info("Enabled gradient checkpointing for Wan transformer during block recon")
 
     for i in range(iters):
         # print(i)

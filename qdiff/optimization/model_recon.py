@@ -6,9 +6,6 @@ from qdiff.models.quant_block import BaseQuantBlock
 from qdiff.models.quant_model import QuantModel
 from qdiff.optimization.block_recon import block_reconstruction
 from qdiff.optimization.layer_recon import layer_reconstruction
-from opensora.models.layers.blocks import Attention, MultiHeadCrossAttention
-from opensora.models.stdit.stdit import STDiTBlock, STDiT
-from opensora.models.stdit.modules import Mlp
 
 
 logger = logging.getLogger(__name__)

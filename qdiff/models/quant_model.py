@@ -73,9 +73,12 @@ class QuantModel(nn.Module):
             if isinstance(child_module, (nn.Conv2d, nn.Conv1d, nn.Linear)):
                 tmp_module = child_module
                 # INFO: for stdit model, assign quant_{spatial/temporal/cross}_attn_layers respectively
-                if self.model_type == 'opensora':
-                    assert isinstance(tmp_module, nn.Linear)  # only linear layers to quantizr in stdit model
-                if '.attn.' in full_name:
+                if self.model_type in ('opensora', 'wan'):
+                    assert isinstance(tmp_module, nn.Linear)
+                if self.model_type == 'wan':
+                    setattr(module, name, QuantLayer(
+                        child_module, weight_quant_params, act_quant_params))
+                elif '.attn.' in full_name:
                     if self.model_type == 'opensora':
                         setattr(module, name, QuantSpatialAttnLinear(\
                             child_module, weight_quant_params, act_quant_params))
@@ -302,6 +305,13 @@ class QuantModel(nn.Module):
                 self.set_quant_params_dict(quant_params_dict=quant_params_dict, module=module_)
 
 
+    def _should_skip_fp_optim(self, module_name: str) -> bool:
+        fp_layers = getattr(self, "fp_layer_list", None) or []
+        for fp_name in fp_layers:
+            if pattern_in(module_name, fp_name) or pattern_in(module_name, "model." + fp_name):
+                return True
+        return False
+
     def replace_quant_buffer_with_parameter(self, opt_d, module=None):
         if module is None:
             module = self.model
@@ -320,12 +330,13 @@ class QuantModel(nn.Module):
                     if opt_d[opt_target] is not None:
                         for param_type in opt_d[opt_target]:
                             # skip the conversion for layers that remain FP
-                            if module_.module_name.split('.')[0] in self.fp_layer_list or '.'.join(module_.module_name.split('.')[:3]) in self.fp_layer_list:
+                            if self._should_skip_fp_optim(module_.module_name):
                                 logger.info('skip module {} optim'.format(module_.module_name))
                                 continue
                             else:
                                 buffer_ = getattr(module_, param_type)
-                                assert isinstance(buffer_, torch.Tensor)
+                                if buffer_ is None or not isinstance(buffer_, torch.Tensor):
+                                    continue
                                 delattr(module_, param_type)
                                 module_.register_parameter(param_type, nn.Parameter(buffer_))
                 else:
@@ -351,11 +362,13 @@ class QuantModel(nn.Module):
                     # if opt_d[opt_target] is not None:
                     if opt_d[opt_target] is not None:
                         for param_type in opt_d[opt_target]:
-                            if module_.module_name.split('.')[0] in self.fp_layer_list or '.'.join(module_.module_name.split('.')[:3]) in self.fp_layer_list:
+                            if self._should_skip_fp_optim(module_.module_name):
                                 continue
                             else:
-                                buffer_ = getattr(module_, param_type).data
-                                assert isinstance(buffer_, torch.Tensor)
+                                param = getattr(module_, param_type, None)
+                                if param is None or not isinstance(param, torch.Tensor):
+                                    continue
+                                buffer_ = param.data
                                 delattr(module_, param_type)
                                 module_.register_buffer(param_type, buffer_)
                     # if opt_d['activation'] is not None:

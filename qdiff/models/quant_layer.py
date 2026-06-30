@@ -179,12 +179,8 @@ class QuantLayer(nn.Module):
                 weight_1 = self.weight_quantizer_0(self.weight[:, self.split:, ...])
                 weight = torch.cat([weight_0, weight_1], dim=1)
             else:
-                E = torch.eye(self.weight.shape[1], device=input.device).to(self.loraB.weight.dtype)
-                lora_weight = self.loraB(self.loraA(E))
-                lora_weight = lora_weight.T
-                E_out = torch.eye(self.weight.shape[1], device=input.device).to(self.loraB_out.weight.dtype)
-                lora_weight_out = self.loraB_out(self.loraA_out(E_out))
-                lora_weight_out = lora_weight_out.T
+                lora_weight = self.loraB.weight @ self.loraA.weight
+                lora_weight_out = self.loraB_out.weight @ self.loraA_out.weight
                 if self.smooth_quant:
                     # during the weight init stage
                     if self.weight_quantizer.timestep_wise is None: # reinit the weight_quantizer
@@ -204,9 +200,10 @@ class QuantLayer(nn.Module):
             bias = self.bias
 
 
-        if weight.dtype == torch.float32 and input.dtype == torch.float16:
-            weight = weight.to(torch.float16)
-
+        if weight.dtype != input.dtype:
+            weight = weight.to(input.dtype)
+        if bias is not None and bias.dtype != input.dtype:
+            bias = bias.to(input.dtype)
 
         out = self.fwd_func(input, weight, bias, **self.fwd_kwargs)  # 在输出的channel上进行channel_wise的量化
         out = self.activation_function(out)

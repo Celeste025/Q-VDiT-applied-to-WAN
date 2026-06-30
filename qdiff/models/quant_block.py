@@ -651,7 +651,7 @@ class QuantAttnProcessor:
 
 
 def get_specials(model_type):
-    if model_type == "opensora" or model_type == "pixart":
+    if model_type in ("opensora", "pixart", "wan"):
         specials = []
     elif model_type == "diffusers":
         specials = {

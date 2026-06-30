@@ -1,0 +1,58 @@
+part_fp_list: "./wan/configs/quant/remain_fp.txt"
+model:
+    model_id: "wan2.1"
+    model_type: 'wan'
+conditional: True
+cfg_split: True
+mixed_precision: [3, 4, 6, 8]
+calib_data:
+    path: "./logs_wan/calib_data_smoke/calib_data.pt"
+    n_steps: 20
+    batch_size: 1
+    n_samples: 2
+quant:
+    weight:
+        optimization:
+            joint_weight_act_opt: False
+            use_grad: False
+            iters: 200
+            loss:
+                lambda_coeff: 0.5
+                warmup: 0.0
+                reconstruction_loss_type: 'relation'
+            params: null
+        quantizer:
+            n_bits: 3
+            per_group: 'channel'
+            scale_method: 'grid_search_lp'
+            channel_wise: True
+            round_mode: 'nearest_ste'
+            sym: False
+    activation:
+        optimization:
+            joint_weight_act_opt: False
+            use_grad: False
+            iters: 10
+            loss:
+                lambda_coeff: 0.5
+                warmup: 0.0
+            params: {}
+        quantizer:
+            n_bits: 6
+            per_group: 'token'
+            dynamic: True
+            scale_method: 'min_max'
+            round_mode: 'nearest_ste'
+            running_stat: False
+            sym: False
+            n_spatial_token: 3584
+            n_temporal_token: 2
+            n_prompt: 226
+            smooth_quant:
+                enable: False
+                channel_wise_scale_type: momentum_act_max
+                momentum: 0.95
+                alpha: 0.11
+    grad_checkpoint: False
+resume_with_w_quantized:
+    path: None

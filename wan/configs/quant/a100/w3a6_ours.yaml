@@ -1,0 +1,61 @@
+part_fp_list: "./wan/configs/quant/remain_fp.txt"
+model:
+    model_id: "wan2.1"
+    model_type: 'wan'
+conditional: True
+cfg_split: True
+mixed_precision: [3, 4, 6, 8]
+calib_data:
+    path: "./logs_wan/calib_data/calib_data.pt"
+    n_steps: 50
+    batch_size: 1
+    n_samples: 10
+quant:
+    weight:
+        optimization:
+            joint_weight_act_opt: False
+            use_grad: False
+            iters: 15000
+            loss:
+                lambda_coeff: 0.5
+                warmup: 0.0
+                reconstruction_loss_type: 'relation'
+            params:
+                delta:
+                    lr: 1.e-6
+        quantizer:
+            n_bits: 3
+            per_group: 'channel'
+            scale_method: 'grid_search_lp'
+            channel_wise: True
+            round_mode: 'nearest_ste'
+            sym: False
+    activation:
+        optimization:
+            joint_weight_act_opt: False
+            use_grad: False
+            iters: 100
+            loss:
+                lambda_coeff: 0.5
+                warmup: 0.0
+            params: {}
+        quantizer:
+            n_bits: 6
+            per_group: 'token'
+            dynamic: True
+            scale_method: 'min_max'
+            round_mode: 'nearest_ste'
+            running_stat: False
+            sym: False
+            n_spatial_token: 1792
+            n_temporal_token: 10
+            n_prompt: 226
+            smooth_quant:
+                enable: False
+                channel_wise_scale_type: momentum_act_max
+                momentum: 0.95
+                alpha: 0.625
+    # A100: enable grad checkpoint for delta block-recon on 480x832x81
+    grad_checkpoint: True
+resume_with_w_quantized:
+    path: None
