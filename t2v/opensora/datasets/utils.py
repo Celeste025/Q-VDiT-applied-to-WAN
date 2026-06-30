@@ -8,7 +8,6 @@ from torch.distributed import ProcessGroup
 from torch.distributed.distributed_c10d import _get_default_group
 from torch.utils.data import DataLoader, Dataset
 from torch.utils.data.distributed import DistributedSampler
-from torchvision.io import write_video
 from torchvision.utils import save_image
 
 
@@ -31,7 +30,24 @@ def save_sample(x, fps=8, save_path=None, normalize=True, value_range=(-1, 1)):
             x.sub_(low).div_(max(high - low, 1e-5))
 
         x = x.mul(255).add_(0.5).clamp_(0, 255).permute(1, 2, 3, 0).to("cpu", torch.uint8)
-        write_video(save_path, x, fps=fps, video_codec="h264")
+        frames = x.numpy()
+        try:
+            from torchvision.io import write_video
+
+            write_video(save_path, x, fps=fps, video_codec="h264")
+        except (TypeError, ImportError):
+            import cv2
+
+            height, width = frames.shape[1:3]
+            writer = cv2.VideoWriter(
+                save_path,
+                cv2.VideoWriter_fourcc(*"mp4v"),
+                fps,
+                (width, height),
+            )
+            for frame in frames:
+                writer.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+            writer.release()
     print(f"Saved to {save_path}")
 
 

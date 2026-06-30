@@ -13,7 +13,7 @@ model = dict(
 )
 vae = dict(
     type="VideoAutoencoderKL",
-    from_pretrained="/data/qvdit/logs/vae_ckpt",
+    from_pretrained="/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/vae_ckpt",
     micro_batch_size=128,
 )
 text_encoder = dict(
@@ -33,6 +33,6 @@ dtype = "fp32"
 # Others
 batch_size = 1
 seed = 42
-prompt_path = "/data/qvdit/t2v/assets/texts/t2v_samples.txt"
+prompt_path = "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/t2v/assets/texts/t2v_samples_10.txt"
 # save_dir = "./generated_videos/fp16"
 

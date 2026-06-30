@@ -221,7 +221,7 @@ def main():
             with open(opt.time_mp_config_weight, 'r') as f:
                 time_mp_config_weight = yaml.safe_load(f)
             qnn.load_bitwidth_config(model=qnn, bit_config=time_mp_config_weight, bit_type='weight')
-        if aq_params.n_bits == 6:
+        if aq_params.n_bits <= 6:
             with open(opt.time_mp_config_act, 'r') as f:
                 time_mp_config_act = yaml.safe_load(f)
             qnn.load_bitwidth_config(model=qnn, bit_config=time_mp_config_act, bit_type='act')

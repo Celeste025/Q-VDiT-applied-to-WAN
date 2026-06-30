@@ -265,8 +265,8 @@ def prepare_coco_text_and_image(json_file):
     return active_captions, image_paths
 
 # ---------- save input output activation & grad ---------------------
-def save_in_out_data(model: QuantModel, layer: Union[QuantLayer, BaseQuantBlock], calib_data: torch.Tensor, config, model_type='sdxl', split_save_attn=False):
-    # asym: bool = False, act_quant: bool = False, batch_size: int = 32, keep_gpu: bool = True,
+def save_in_out_data(model: QuantModel, layer: Union[QuantLayer, BaseQuantBlock], calib_data: torch.Tensor, config, model_type='sdxl', split_save_attn=False, keep_gpu: bool = False):
+    # asym: bool = False, act_quant: bool = False, batch_size: int = 32,
                       # cond: bool = True, split_save_attn: bool = False, model_type='sdxl'):
     """
     Save input data and output data of a particular layer/block over calibration dataset.
@@ -475,27 +475,30 @@ def save_in_out_data(model: QuantModel, layer: Union[QuantLayer, BaseQuantBlock]
         logger.info(f"out shape: {cached_outs.shape}")
     torch.cuda.empty_cache()
 
-    # INFO: move data to gpu, why does it need to move to cpu at first?
-    if isinstance(cached_inps, list):
-        if isinstance(cached_inps[0], list):
+    # INFO: keep_gpu=False leaves cache on CPU; block_recon moves one batch per step.
+    if keep_gpu:
+        if isinstance(cached_inps, list):
+            if isinstance(cached_inps[0], list):
+                pass
+            else:
+                if len(cached_inps)==7:
+                    cached_inps[0] = cached_inps[0].to(device)
+                    cached_inps[2] = cached_inps[2].to(device)
+                elif len(cached_inps)==3:
+                    cached_inps[0] = cached_inps[0].to(device)
+                    cached_inps[1] = cached_inps[1].to(device)
+                    cached_inps[2] = cached_inps[2].to(device)
+                else:
+                    cached_inps[0] = cached_inps[0].to(device)
+                    cached_inps[1] = cached_inps[1].to(device)
+        else:
+            cached_inps = cached_inps.to(device)
+        if isinstance(cached_outs, list):
             pass
         else:
-            if len(cached_inps)==7:
-                cached_inps[0] = cached_inps[0].to(device)
-                cached_inps[2] = cached_inps[2].to(device)
-            elif len(cached_inps)==3:
-                cached_inps[0] = cached_inps[0].to(device)
-                cached_inps[1] = cached_inps[1].to(device)
-                cached_inps[2] = cached_inps[2].to(device)
-            else:
-                cached_inps[0] = cached_inps[0].to(device)
-                cached_inps[1] = cached_inps[1].to(device)
+            cached_outs = cached_outs.to(device)
     else:
-        cached_inps = cached_inps.to(device)
-    if isinstance(cached_outs, list):
-        pass
-    else:
-        cached_outs = cached_outs.to(device)
+        logger.info("keep_gpu=False: cached in/out activations stay on CPU")
 
     return cached_inps, cached_outs
 

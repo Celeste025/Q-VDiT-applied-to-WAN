@@ -1,0 +1,15 @@
+{
+  "n": 25,
+  "seed": 42,
+  "coverage": {
+    "imaging_quality": 10,
+    "aesthetic_quality": 10,
+    "motion_smoothness": 9,
+    "dynamic_degree": 9,
+    "background_consistency": 6,
+    "subject_consistency": 9,
+    "scene": 6,
+    "overall_consistency": 10
+  },
+  "excluded_calib": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/t2v/assets/texts/t2v_samples_10.txt"
+}

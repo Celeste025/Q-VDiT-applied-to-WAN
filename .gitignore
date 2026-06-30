@@ -1,0 +1,71 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Secrets (never commit) ---
+.env
+.env.*
+*.pem
+credentials.json
+secrets.yaml
+
+# --- Large model weights & tensors ---
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# --- Generated videos & calib blobs ---
+*.mp4
+*.avi
+*.mov
+*.webm
+calib_data.pt
+input_list.pt
+output_list.pt
+
+# --- Experiment outputs (checkpoints, logs, VBench cache) ---
+logs/*
+!logs/eval_vbench_subset25/
+logs/eval_vbench_subset25/**
+!logs/eval_vbench_subset25/**/
+!logs/eval_vbench_subset25/**/*.json
+logs_*/
+logs_smoke/
+
+# --- Hugging Face / download caches ---
+.cache/
+.huggingface/
+huggingface/
+
+# --- Local runtime / tmux / wandb ---
+wandb/
+*.log
+.tmux/
+
+# --- Compiled / vendor noise under t2v ---
+t2v/**/__pycache__/

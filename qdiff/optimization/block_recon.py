@@ -262,14 +262,14 @@ def block_reconstruction(model: QuantModel, block: BaseQuantBlock, calib_data: t
             # 这个对应多输入
             if len(cached_inps)==2:
                 # idx = torch.randperm(cached_inps[0].size(0))[:batch_size]
-                cur_x = cached_inps[0][idx]
-                cur_t = cached_inps[1][idx]
+                cur_x = cached_inps[0][idx].to(device)
+                cur_t = cached_inps[1][idx].to(device)
                 cur_inp = (cur_x, cur_t)
             elif len(cached_inps)==3:
                 # idx = torch.randperm(cached_inps[0].size(0))[:batch_size]
-                cur_x = cached_inps[0][idx]
-                cur_t = cached_inps[1][idx]
-                cur_y = cached_inps[2][idx]
+                cur_x = cached_inps[0][idx].to(device)
+                cur_t = cached_inps[1][idx].to(device)
+                cur_y = cached_inps[2][idx].to(device)
                 cur_inp = (cur_x, cur_t, cur_y)
             else:
                 # 针对 QuantTransformerBlock
@@ -296,13 +296,13 @@ def block_reconstruction(model: QuantModel, block: BaseQuantBlock, calib_data: t
                 cur_inp = tuple(cur_inp)
         else:
             # idx = torch.randperm(cached_inps.size(0))[:batch_size]  # 随机取样
-            cur_inp = cached_inps[idx]
+            cur_inp = cached_inps[idx].to(device)
         if isinstance(cached_outs, list):
             # cur_out = cached_outs[pmp_id][idx]
-            cur_out = torch.cat([cached_outs[pmp_id][index] for index in [idx*4, idx*4+1, idx*4+2, idx*4+3]])
+            cur_out = torch.cat([cached_outs[pmp_id][index] for index in [idx*4, idx*4+1, idx*4+2, idx*4+3]]).to(device)
         else:
-            cur_out = cached_outs[idx]
-        cur_grad = cached_grads[idx] if use_grad else None
+            cur_out = cached_outs[idx].to(device)
+        cur_grad = cached_grads[idx].to(device) if use_grad else None
 
         # import ipdb; ipdb.set_trace()
         optimizer.zero_grad()
