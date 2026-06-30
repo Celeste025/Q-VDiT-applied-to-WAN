@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from wan.models.pipeline import build_pipeline, load_prompts
-from wan.utils.config import WAN_ROOT, load_yaml
+from wan.utils.config import WAN_ROOT, infer_flow_shift, infer_guidance_scale, load_yaml
 from wan.utils.verify import gate_l1
 
 
@@ -36,7 +36,7 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
 
     prompts = load_prompts(args.prompt_path, limit=args.num_prompts)
-    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"))
+    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"), flow_shift=infer_flow_shift(infer))
 
     timings = []
     for idx, prompt in enumerate(prompts):
@@ -48,7 +48,7 @@ def main():
             width=int(infer.width),
             num_frames=int(infer.num_frames),
             num_inference_steps=int(infer.num_inference_steps),
-            guidance_scale=float(infer.guidance_scale),
+            guidance_scale=infer_guidance_scale(infer),
             generator=gen,
         )
         elapsed = time.time() - t0

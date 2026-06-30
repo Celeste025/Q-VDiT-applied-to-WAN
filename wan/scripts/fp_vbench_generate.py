@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from wan.models.pipeline import build_pipeline
-from wan.utils.config import WAN_ROOT, load_yaml
+from wan.utils.config import WAN_ROOT, infer_flow_shift, infer_guidance_scale, load_yaml
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
 
     save_dir = Path(args.save_dir)
     save_dir.mkdir(parents=True, exist_ok=True)
-    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"))
+    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"), flow_shift=infer_flow_shift(infer))
 
     for i, item in enumerate(items):
         prompt = item["prompt_en"]
@@ -49,7 +49,7 @@ def main():
             width=int(infer.width),
             num_frames=int(infer.num_frames),
             num_inference_steps=int(infer.num_inference_steps),
-            guidance_scale=float(infer.guidance_scale),
+            guidance_scale=infer_guidance_scale(infer),
             generator=gen,
         )
         export_to_video(result.frames[0], str(out), fps=int(infer.get("fps", 16)))

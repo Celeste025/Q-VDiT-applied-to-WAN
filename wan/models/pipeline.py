@@ -5,10 +5,19 @@ from __future__ import annotations
 from pathlib import Path
 
 import torch
-from diffusers import WanPipeline
+from diffusers import UniPCMultistepScheduler, WanPipeline
 
 from wan.models.wan_forward_adapter import WanForwardAdapter
-from wan.utils.config import parse_dtype
+from wan.utils.config import NATIVE_FLOW_SHIFT_480P, parse_dtype
+
+
+def configure_flow_shift(pipe: WanPipeline, flow_shift: float) -> WanPipeline:
+    """Apply Wan native sample_shift via UniPCMultistepScheduler.flow_shift."""
+    pipe.scheduler = UniPCMultistepScheduler.from_config(
+        pipe.scheduler.config,
+        flow_shift=float(flow_shift),
+    )
+    return pipe
 
 
 def build_pipeline(
@@ -16,9 +25,12 @@ def build_pipeline(
     dtype_name: str = "bfloat16",
     device: str | None = None,
     cpu_offload: bool = True,
+    flow_shift: float | None = NATIVE_FLOW_SHIFT_480P,
 ):
     dtype = parse_dtype(dtype_name)
     pipe = WanPipeline.from_pretrained(str(model_path), torch_dtype=dtype)
+    if flow_shift is not None:
+        configure_flow_shift(pipe, flow_shift)
     if device is not None:
         pipe.to(device)
     elif cpu_offload:

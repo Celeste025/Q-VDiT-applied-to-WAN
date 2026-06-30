@@ -10,6 +10,11 @@ from omegaconf import OmegaConf
 
 WAN_ROOT = Path(__file__).resolve().parents[1]
 QVDIT_ROOT = WAN_ROOT.parent
+
+# Wan2.1-T2V-1.3B native generate.py defaults at 480P (sample_guide_scale / sample_shift).
+NATIVE_GUIDANCE_SCALE_1_3B = 6.0
+NATIVE_FLOW_SHIFT_480P = 8.0
+
 DEFAULT_MODEL = Path(
     os.environ.get(
         "WAN_MODEL_PATH",
@@ -20,6 +25,14 @@ DEFAULT_MODEL = Path(
 
 def load_yaml(path: Path | str):
     return OmegaConf.load(str(path))
+
+
+def infer_guidance_scale(infer) -> float:
+    return float(infer.get("guidance_scale", NATIVE_GUIDANCE_SCALE_1_3B))
+
+
+def infer_flow_shift(infer) -> float:
+    return float(infer.get("flow_shift", NATIVE_FLOW_SHIFT_480P))
 
 
 def add_common_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:

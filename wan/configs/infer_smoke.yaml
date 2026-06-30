@@ -2,8 +2,9 @@ height: 256
 width: 448
 num_frames: 17
 num_inference_steps: 20
-guidance_scale: 5.0
+# Same native sampling params as full infer (resolution is smoke-only)
+guidance_scale: 6.0
+flow_shift: 8.0
 fps: 16
 seed: 42
 dtype: bfloat16
-flow_shift: 5.0

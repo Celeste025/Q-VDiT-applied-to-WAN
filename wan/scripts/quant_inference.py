@@ -22,7 +22,7 @@ from qdiff.models.quant_model import QuantModel
 from qdiff.utils import load_quant_params
 from wan.models.pipeline import build_pipeline, load_prompts
 from wan.models.wan_forward_adapter import WanForwardAdapter
-from wan.utils.config import WAN_ROOT, load_yaml, parse_dtype
+from wan.utils.config import WAN_ROOT, infer_flow_shift, infer_guidance_scale, load_yaml, parse_dtype
 from wan.utils.verify import gate_l5
 
 
@@ -91,7 +91,7 @@ def main():
     save_dir.mkdir(parents=True, exist_ok=True)
 
     ckpt = args.quant_ckpt or str(outdir / "ckpt.pth")
-    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"))
+    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"), flow_shift=infer_flow_shift(infer))
     setup_quant_transformer(
         pipe,
         Path(args.quant_config),
@@ -110,7 +110,7 @@ def main():
             width=int(infer.width),
             num_frames=int(infer.num_frames),
             num_inference_steps=int(infer.num_inference_steps),
-            guidance_scale=float(infer.guidance_scale),
+            guidance_scale=infer_guidance_scale(infer),
             generator=gen,
         )
         out_path = save_dir / f"sample_{idx}.mp4"

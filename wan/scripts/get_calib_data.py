@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 from wan.models.pipeline import build_pipeline, load_prompts
 from wan.utils.calib_hooks import collect_calib_trajectory
-from wan.utils.config import WAN_ROOT, load_yaml
+from wan.utils.config import WAN_ROOT, infer_flow_shift, infer_guidance_scale, load_yaml
 from wan.utils.verify import gate_l3
 
 
@@ -34,7 +34,12 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
-    pipe = build_pipeline(args.model_path, infer.get("dtype", "bfloat16"), cpu_offload=False)
+    pipe = build_pipeline(
+        args.model_path,
+        infer.get("dtype", "bfloat16"),
+        cpu_offload=False,
+        flow_shift=infer_flow_shift(infer),
+    )
     pipe.transformer.to(device)
     prompts = load_prompts(args.prompt_path, limit=args.num_prompts)
 
@@ -45,7 +50,7 @@ def main():
         width=int(infer.width),
         num_frames=int(infer.num_frames),
         num_inference_steps=int(infer.num_inference_steps),
-        guidance_scale=float(infer.guidance_scale),
+        guidance_scale=infer_guidance_scale(infer),
         seed=int(infer.get("seed", 42)),
         device=device,
     )
