@@ -6,6 +6,14 @@ import json
 from pathlib import Path
 
 
+def _extract_score(value) -> float | None:
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, list) and value and isinstance(value[0], (int, float)):
+        return float(value[0])
+    return None
+
+
 def load_scores(results_dir: Path) -> dict[str, float]:
     jsons = sorted(results_dir.glob("*eval_results.json"))
     if not jsons:
@@ -13,7 +21,12 @@ def load_scores(results_dir: Path) -> dict[str, float]:
     data = json.loads(jsons[0].read_text())
     if isinstance(data, dict) and "results" in data:
         data = data["results"]
-    return {k: float(v) for k, v in data.items() if isinstance(v, (int, float))}
+    scores: dict[str, float] = {}
+    for key, value in data.items():
+        score = _extract_score(value)
+        if score is not None:
+            scores[key] = score
+    return scores
 
 
 def compare(fp16_dir: Path, quant_dir: Path) -> str:
