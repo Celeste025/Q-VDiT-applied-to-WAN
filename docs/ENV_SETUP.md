@@ -114,6 +114,8 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 CUDA_VISIBLE_DEVICES=0 bash scripts/run_wan_pipeline_a100.sh w8a8_ours 0
 ```
 
+**A100 完整部署与运行步骤**见 [`docs/WAN_A100_RUNBOOK.md`](./WAN_A100_RUNBOOK.md)（含 GPU 选择、先跑 w8a8 等工程师操作说明）。
+
 ---
 
 ## 3. 并行运行规范（多卡服务器）

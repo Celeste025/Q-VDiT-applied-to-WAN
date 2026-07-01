@@ -1,0 +1,318 @@
+{
+    "aesthetic_quality": [
+        0.632574537396431,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Gwen Stacy reading a book.mp4",
+                "video_results": 0.6314929127693176
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Fireworks..mp4",
+                "video_results": 0.6407816410064697
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Pacific coast, carmel by the sea ocean and waves..mp4",
+                "video_results": 0.622460126876831
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A storm trooper vacuuming the beach..mp4",
+                "video_results": 0.7079156637191772
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cat eating food out of a bowl.mp4",
+                "video_results": 0.48109129071235657
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A bigfoot walking in the snowstorm..mp4",
+                "video_results": 0.7330986261367798
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a teddy bear is swimming in the ocean..mp4",
+                "video_results": 0.7269602417945862
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A space shuttle launching into orbit, with flames and smoke billowing out from the engines.mp4",
+                "video_results": 0.6427178382873535
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cute raccoon playing guitar in a boat on the ocean.mp4",
+                "video_results": 0.6365437507629395
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Balloon full of water exploding in extreme slow motion..mp4",
+                "video_results": 0.5026832818984985
+            }
+        ]
+    ],
+    "imaging_quality": [
+        0.6681952850818633,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Gwen Stacy reading a book.mp4",
+                "video_results": 74.71464967727661
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Fireworks..mp4",
+                "video_results": 46.78981804847717
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Pacific coast, carmel by the sea ocean and waves..mp4",
+                "video_results": 77.60641145706177
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A storm trooper vacuuming the beach..mp4",
+                "video_results": 75.6550145149231
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cat eating food out of a bowl.mp4",
+                "video_results": 71.77313137054443
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A bigfoot walking in the snowstorm..mp4",
+                "video_results": 71.43067216873169
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a teddy bear is swimming in the ocean..mp4",
+                "video_results": 69.43572783470154
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A space shuttle launching into orbit, with flames and smoke billowing out from the engines.mp4",
+                "video_results": 58.810163259506226
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cute raccoon playing guitar in a boat on the ocean.mp4",
+                "video_results": 75.43733072280884
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Balloon full of water exploding in extreme slow motion..mp4",
+                "video_results": 46.54236602783203
+            }
+        ]
+    ],
+    "overall_consistency": [
+        0.25842650085687635,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Gwen Stacy reading a book.mp4",
+                "video_results": 0.23258362710475922
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Fireworks..mp4",
+                "video_results": 0.20417462289333344
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Pacific coast, carmel by the sea ocean and waves..mp4",
+                "video_results": 0.16286304593086243
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A storm trooper vacuuming the beach..mp4",
+                "video_results": 0.29907897114753723
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cat eating food out of a bowl.mp4",
+                "video_results": 0.24817481637001038
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A bigfoot walking in the snowstorm..mp4",
+                "video_results": 0.33749645948410034
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a teddy bear is swimming in the ocean..mp4",
+                "video_results": 0.30694320797920227
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A space shuttle launching into orbit, with flames and smoke billowing out from the engines.mp4",
+                "video_results": 0.27385327219963074
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/A cute raccoon playing guitar in a boat on the ocean.mp4",
+                "video_results": 0.3593059480190277
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/Balloon full of water exploding in extreme slow motion..mp4",
+                "video_results": 0.1597910374403
+            }
+        ]
+    ],
+    "scene": [
+        0.5,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/music studio.mp4",
+                "video_results": 0.1875
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/sky.mp4",
+                "video_results": 1.0
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/desert.mp4",
+                "video_results": 0.8125
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/river.mp4",
+                "video_results": 0.0
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/parking lot.mp4",
+                "video_results": 1.0
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/palace.mp4",
+                "video_results": 0.0
+            }
+        ]
+    ],
+    "background_consistency": [
+        0.9630126953125,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/music studio.mp4",
+                "video_results": 0.9500651041666667
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/sky.mp4",
+                "video_results": 0.9655924479166667
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/desert.mp4",
+                "video_results": 0.9657063802083333
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/river.mp4",
+                "video_results": 0.9842936197916666
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/parking lot.mp4",
+                "video_results": 0.9611979166666667
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/palace.mp4",
+                "video_results": 0.951220703125
+            }
+        ]
+    ],
+    "subject_consistency": [
+        0.900037799499653,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a zebra running to join a herd of its kind.mp4",
+                "video_results": 14.372495949268341
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a train accelerating to gain speed.mp4",
+                "video_results": 13.00364476442337
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bear climbing a tree.mp4",
+                "video_results": 14.434245377779007
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a motorcycle accelerating to gain speed.mp4",
+                "video_results": 13.152231901884079
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bird building a nest from twigs and leaves.mp4",
+                "video_results": 14.729181379079819
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a car turning a corner.mp4",
+                "video_results": 11.818907052278519
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a truck anchored in a tranquil bay.mp4",
+                "video_results": 14.61895877122879
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/an airplane soaring through a clear blue sky.mp4",
+                "video_results": 14.589908182621002
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a cat running happily.mp4",
+                "video_results": 10.785529553890228
+            }
+        ]
+    ],
+    "dynamic_degree": [
+        0.6666666666666666,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a zebra running to join a herd of its kind.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a train accelerating to gain speed.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bear climbing a tree.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a motorcycle accelerating to gain speed.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bird building a nest from twigs and leaves.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a car turning a corner.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a truck anchored in a tranquil bay.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/an airplane soaring through a clear blue sky.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a cat running happily.mp4",
+                "video_results": true
+            }
+        ]
+    ],
+    "motion_smoothness": [
+        0.9399304698346896,
+        [
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a zebra running to join a herd of its kind.mp4",
+                "video_results": 0.9274845069863883
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a train accelerating to gain speed.mp4",
+                "video_results": 0.8455008826447246
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bear climbing a tree.mp4",
+                "video_results": 0.9779245278637171
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a motorcycle accelerating to gain speed.mp4",
+                "video_results": 0.9038841261805829
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a bird building a nest from twigs and leaves.mp4",
+                "video_results": 0.9736988705190736
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a car turning a corner.mp4",
+                "video_results": 0.9460289500118082
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a truck anchored in a tranquil bay.mp4",
+                "video_results": 0.9762962704613095
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/an airplane soaring through a clear blue sky.mp4",
+                "video_results": 0.9968228843254424
+            },
+            {
+                "video_path": "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w8a8_videos/a cat running happily.mp4",
+                "video_results": 0.9117332095191593
+            }
+        ]
+    ]
+}

@@ -1,0 +1,338 @@
+[
+    {
+        "prompt_en": "Gwen Stacy reading a book",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/Gwen Stacy reading a book.mp4"
+        ]
+    },
+    {
+        "prompt_en": "Fireworks.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/Fireworks..mp4"
+        ]
+    },
+    {
+        "prompt_en": "Pacific coast, carmel by the sea ocean and waves.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/Pacific coast, carmel by the sea ocean and waves..mp4"
+        ]
+    },
+    {
+        "prompt_en": "A storm trooper vacuuming the beach.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/A storm trooper vacuuming the beach..mp4"
+        ]
+    },
+    {
+        "prompt_en": "A cat eating food out of a bowl",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/A cat eating food out of a bowl.mp4"
+        ]
+    },
+    {
+        "prompt_en": "A bigfoot walking in the snowstorm.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/A bigfoot walking in the snowstorm..mp4"
+        ]
+    },
+    {
+        "prompt_en": "a zebra running to join a herd of its kind",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a zebra running to join a herd of its kind.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a train accelerating to gain speed",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a train accelerating to gain speed.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a bear climbing a tree",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a bear climbing a tree.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a motorcycle accelerating to gain speed",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a motorcycle accelerating to gain speed.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a bird building a nest from twigs and leaves",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a bird building a nest from twigs and leaves.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a car turning a corner",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a car turning a corner.mp4"
+        ]
+    },
+    {
+        "prompt_en": "music studio",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "music studio"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/music studio.mp4"
+        ]
+    },
+    {
+        "prompt_en": "sky",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "sky"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/sky.mp4"
+        ]
+    },
+    {
+        "prompt_en": "desert",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "desert"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/desert.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a truck anchored in a tranquil bay",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a truck anchored in a tranquil bay.mp4"
+        ]
+    },
+    {
+        "prompt_en": "an airplane soaring through a clear blue sky",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/an airplane soaring through a clear blue sky.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a cat running happily",
+        "dimension": [
+            "subject_consistency",
+            "dynamic_degree",
+            "motion_smoothness"
+        ],
+        "primary_dimension": "subject_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a cat running happily.mp4"
+        ]
+    },
+    {
+        "prompt_en": "river",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "river"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/river.mp4"
+        ]
+    },
+    {
+        "prompt_en": "parking lot",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "parking lot"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/parking lot.mp4"
+        ]
+    },
+    {
+        "prompt_en": "palace",
+        "dimension": [
+            "scene",
+            "background_consistency"
+        ],
+        "primary_dimension": "scene",
+        "auxiliary_info": {
+            "scene": {
+                "scene": {
+                    "scene": "palace"
+                }
+            }
+        },
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/palace.mp4"
+        ]
+    },
+    {
+        "prompt_en": "a teddy bear is swimming in the ocean.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/a teddy bear is swimming in the ocean..mp4"
+        ]
+    },
+    {
+        "prompt_en": "A space shuttle launching into orbit, with flames and smoke billowing out from the engines",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/A space shuttle launching into orbit, with flames and smoke billowing out from the engines.mp4"
+        ]
+    },
+    {
+        "prompt_en": "A cute raccoon playing guitar in a boat on the ocean",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/A cute raccoon playing guitar in a boat on the ocean.mp4"
+        ]
+    },
+    {
+        "prompt_en": "Balloon full of water exploding in extreme slow motion.",
+        "dimension": [
+            "overall_consistency",
+            "aesthetic_quality",
+            "imaging_quality"
+        ],
+        "primary_dimension": "overall_consistency",
+        "video_list": [
+            "/data/home/jinqiwen/workspace/video-distilation/Q-VDiT/logs/eval_vbench_subset25/w4a6_videos/Balloon full of water exploding in extreme slow motion..mp4"
+        ]
+    }
+]
